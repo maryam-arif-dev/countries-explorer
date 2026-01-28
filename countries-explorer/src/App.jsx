@@ -4,7 +4,37 @@ import Header from "./components/Header";
 import SearchFilterSection from "./components/SearchFilterSection";
 import CountriesCardsSection from "./components/CountriesCardsSection";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
+import ErrorSection from "./components/ErrorSection";
+const COUNTRYES_URL =
+  "https://restcountries.com/v3.1/all?fields=cca3,name,region,population,flags";
 function App() {
+  // Define use state
+  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  // Define UseEffect For Fetch Data From API
+  useEffect(() => {
+    async function fetchCountries() {
+      try {
+        setLoading(true);
+        setError(null);
+        const fetchCountriesResult = await fetch(COUNTRYES_URL);
+        if (!fetchCountriesResult.ok) {
+          throw new Error(`Field to fetch users...`);
+        }
+        const data = await fetchCountriesResult.json();
+        setCountries(data);
+        console.log(data);
+        console.log(countries);
+      } catch (err) {
+        setError(err.message || "Something went wrong...");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCountries();
+  }, []);
   return (
     <>
       <div className="page">
@@ -13,8 +43,9 @@ function App() {
         {/* Search and filter section */}
         {/* Search Section */}
         <SearchFilterSection></SearchFilterSection>
+        <ErrorSection error={error}></ErrorSection>
         {/* Countries Card Section */}
-        <CountriesCardsSection></CountriesCardsSection>
+        <CountriesCardsSection countries={countries}></CountriesCardsSection>
         {/* Footer Section */}
         <Footer></Footer>
       </div>
