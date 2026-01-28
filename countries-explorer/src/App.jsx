@@ -6,6 +6,7 @@ import CountriesCardsSection from "./components/CountriesCardsSection";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import ErrorSection from "./components/ErrorSection";
+import LoadingSection from "./components/LoadingSection";
 const COUNTRYES_URL =
   "https://restcountries.com/v3.1/all?fields=cca3,name,region,population,flags";
 function App() {
@@ -43,6 +44,9 @@ function App() {
         {/* Search and filter section */}
         {/* Search Section */}
         <SearchFilterSection></SearchFilterSection>
+        {/* Loading Section */}
+        <LoadingSection loading={loading}></LoadingSection>
+        {/* Error Section */}
         <ErrorSection error={error}></ErrorSection>
         {/* Countries Card Section */}
         <CountriesCardsSection countries={countries}></CountriesCardsSection>
