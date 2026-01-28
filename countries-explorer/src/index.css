@@ -1,0 +1,207 @@
+/* --------------------
+   Global Styles
+-------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #0f0f0f;
+}
+
+/* --------------------
+   Page Layout
+-------------------- */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --------------------
+   Header
+-------------------- */
+.header {
+  padding: 1.5rem 2rem;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.header-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------
+   Search & Filter Section
+-------------------- */
+.search-filter-section {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  width: min(95%, 1100px);
+  display: grid;
+  grid-template-columns: 1fr 220px auto;
+  gap: 1rem;
+
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Common input styles */
+.search-column,
+.filter-column {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #334155;
+}
+
+.search-input,
+select {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  color: #334155;
+}
+
+/* --------------------
+   Clear Filter Button
+-------------------- */
+.clear-filter-column {
+  display: flex;
+}
+
+.clear-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  color: #334155;
+
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.clear-filter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   Countries Cards Section
+-------------------- */
+.countries-cards {
+  width: min(95%, 1200px);
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --------------------
+   Country Card
+-------------------- */
+.country-card-column {
+  padding: 1.5rem;
+  border-radius: 22px;
+
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.country-card-column:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Placeholder styles for data */
+.country-flag {
+  height: 140px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+}
+
+.country-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.country-region,
+.country-population {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* --------------------
+   Footer
+-------------------- */
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* --------------------
+   Responsive Design
+-------------------- */
+@media (max-width: 900px) {
+  .search-filter-section {
+    grid-template-columns: 1fr;
+  }
+
+  .clear-filter-column {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-title {
+    font-size: 1.4rem;
+  }
+
+  .country-flag {
+    height: 120px;
+  }
+}

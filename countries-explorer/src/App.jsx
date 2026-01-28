@@ -8,7 +8,7 @@ function App() {
         <header className="header">
           <div className="header-title">
             <span className="header-title-icon">
-              <Earth color="#0f0f0f" />
+              <Earth size={28} color="#ffffff" strokeWidth={1.75} />
             </span>
             Countries Explorer
           </div>
@@ -18,30 +18,32 @@ function App() {
         <div className="search-filter-section">
           <div className="search-column">
             <span className="search-icon">
-              <Search color="#0f0f0f" />
+              <Search size={28} color="#ffffff" strokeWidth={1.75} />
             </span>
-            <input type="text" className="search-input" />
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Enter Country Name..."
+            />
           </div>
           {/* Filter Section */}
           <div className="filter-column">
             <span className="filter-icon">
-              <Funnel color="#0f0f0f" />
+              <Funnel size={28} color="#ffffff" strokeWidth={1.75} />
             </span>
             <select name="" id="">
-              <option value="">
-                <option value="all">All</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-              </option>
+              <option value="all">All</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
             </select>
           </div>
           {/* Claer Filter */}
           <div className="clear-filter-column">
             <button className="clear-filter">
-              <BrushCleaning color="#0f0f0f" />
+              <BrushCleaning size={28} color="#ffffff" strokeWidth={1.75} />
               Claer Filters
             </button>
           </div>
