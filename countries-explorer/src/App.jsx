@@ -17,6 +17,11 @@ function App() {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("all");
   const trimedSearch = search.trim();
+  // Clear Button
+  const handleClearFilters = () => {
+    setSearch("");
+    setRegion("all");
+  };
   // Define UseEffect For Fetch Data From API
   const controller = new AbortController();
   useEffect(() => {
@@ -28,6 +33,9 @@ function App() {
           COUNTRYES_URL = `https://restcountries.com/v3.1/name/${encodeURIComponent(trimedSearch)}`;
         } else if (region !== "all") {
           COUNTRYES_URL = `https://restcountries.com/v3.1/region/${region}`;
+        } else if (region == "all") {
+          COUNTRYES_URL =
+            "https://restcountries.com/v3.1/all?fields=cca3,name,region,population,flags";
         }
         const fetchCountriesResult = await fetch(COUNTRYES_URL, {
           signal: controller.signal,
@@ -60,6 +68,7 @@ function App() {
           setSearch={setSearch}
           region={region}
           setRegion={setRegion}
+          onClear={handleClearFilters}
         ></SearchFilterSection>
         {/* Loading Section */}
         <LoadingSection loading={loading}></LoadingSection>

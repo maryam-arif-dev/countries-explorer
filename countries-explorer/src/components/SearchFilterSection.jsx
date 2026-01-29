@@ -4,6 +4,7 @@ export default function SearchFilterSection({
   setSearch,
   region,
   setRegion,
+  onClear,
 }) {
   const hasText = search.length > 0;
   return (
@@ -64,7 +65,7 @@ export default function SearchFilterSection({
       </div>
       {/* Claer Filter */}
       <div className="clear-filter-column">
-        <button className="clear-filter">
+        <button className="clear-filter" onClick={onClear}>
           <BrushCleaning size={28} color="#ffffff" strokeWidth={1.75} />
           Claer Filters
         </button>
