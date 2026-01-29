@@ -1,5 +1,10 @@
 import { X, Search, Funnel, BrushCleaning } from "lucide-react";
-export default function SearchFilterSection({ search, setSearch }) {
+export default function SearchFilterSection({
+  search,
+  setSearch,
+  region,
+  setRegion,
+}) {
   const hasText = search.length > 0;
   return (
     <div className="search-filter-section">
@@ -31,13 +36,30 @@ export default function SearchFilterSection({ search, setSearch }) {
         <span className="filter-icon">
           <Funnel size={28} color="#ffffff" strokeWidth={1.75} />
         </span>
-        <select name="" id="">
-          <option value="all">All</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
+        <select
+          name=""
+          id=""
+          value={region}
+          onChange={(e) => setRegion(e.target.value)}
+        >
+          <option value="all" className="select-options">
+            All
+          </option>
+          <option value="Africa" className="select-options">
+            Africa
+          </option>
+          <option value="Americas" className="select-options">
+            Americas
+          </option>
+          <option value="Asia" className="select-options">
+            Asia
+          </option>
+          <option value="Europe" className="select-options">
+            Europe
+          </option>
+          <option value="Oceania" className="select-options">
+            Oceania
+          </option>
         </select>
       </div>
       {/* Claer Filter */}

@@ -86,6 +86,20 @@ select {
   font-size: 1rem;
   color: #334155;
 }
+/* Options inside select */
+.select-options {
+  background-color: #0f172a; /* dark slate */
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* Hover / selected (works in Chrome, Edge) */
+.select-options:hover,
+.select-options:checked {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
 /* Input clear btn */
 .input-clear-btn {
   background: none; /* no default button background */
