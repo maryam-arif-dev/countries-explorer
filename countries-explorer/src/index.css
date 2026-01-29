@@ -86,6 +86,18 @@ select {
   font-size: 1rem;
   color: #334155;
 }
+/* Input clear btn */
+.input-clear-btn {
+  background: none; /* no default button background */
+  border: none; /* remove default border */
+  padding: 0; /* no extra padding */
+  margin: 0; /* no margin */
+  cursor: pointer; /* pointer on hover */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* matches search icon color */
+}
 
 /* --------------------
    Clear Filter Button

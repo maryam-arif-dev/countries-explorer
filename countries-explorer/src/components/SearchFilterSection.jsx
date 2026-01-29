@@ -1,5 +1,6 @@
-import { Search, Funnel, BrushCleaning } from "lucide-react";
-export default function SearchFilterSection() {
+import { X, Search, Funnel, BrushCleaning } from "lucide-react";
+export default function SearchFilterSection({ search, setSearch }) {
+  const hasText = search.length > 0;
   return (
     <div className="search-filter-section">
       <div className="search-column">
@@ -9,8 +10,21 @@ export default function SearchFilterSection() {
         <input
           type="text"
           className="search-input"
-          placeholder="Enter Country Name..."
+          placeholder="Search Country Name(eg; Afghanistan, USA, UK...)"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
+        {hasText ? (
+          <button
+            className="input-clear-btn"
+            type="button"
+            onClick={() => setSearch("")}
+            aria-label="Clear search"
+            title="Clear"
+          >
+            <X size={28} color="#ffffff" strokeWidth={1.75} />
+          </button>
+        ) : null}
       </div>
       {/* Filter Section */}
       <div className="filter-column">
