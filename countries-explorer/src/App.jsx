@@ -45,8 +45,10 @@ function App() {
           throw new Error(`Failed to fetch countries data`);
         }
         const data = await fetchCountriesResult.json();
-        setCountries(data);
-        console.log(data);
+        // Sort Countries based on population
+        const sorted = [...data].sort((a, b) => b.population - a.population);
+        setCountries(sorted);
+        console.log(sorted);
       } catch (err) {
         setError(err.message || "Something went wrong...");
       } finally {
